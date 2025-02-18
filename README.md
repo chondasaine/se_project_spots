@@ -15,7 +15,7 @@ The purpose of this project was to create a responsive front-end for the web app
 
 [Mobile Screenshot](https://github.com/chondasaine/se_project_spots/blob/main/Mobile.png?raw=true)
 
-[Desktop Screenhot]()
+[Desktop Screenhot](https://github.com/chondasaine/se_project_spots/blob/main/Desktop%20View.png?raw=true)
 
 ## Deployment
 
