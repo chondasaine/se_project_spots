@@ -60,6 +60,11 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
+  cursor: pointer;
+}
+
+.profile__edit-button:hover {
+  color: #212121;
 }
 
 .profile__add-button {
@@ -79,6 +84,11 @@
   color: #fcf5e5;
   border-radius: 8px;
   text-wrap: nowrap;
+  cursor: pointer;
+}
+
+.profile__add-button:hover {
+  opacity: 80%;
 }
 
 @media screen and (max-width: 627px) {

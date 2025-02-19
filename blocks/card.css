@@ -29,6 +29,12 @@
   border: none;
   background-color: transparent;
   opacity: 40%;
+  cursor: pointer;
+}
+
+.card__like-button:hover {
+  background-image: url(../images/likeimage.svg);
+  opacity: 1;
 }
 
 @media screen and (max-width: 627px) {
