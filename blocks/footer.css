@@ -6,7 +6,7 @@
 .footer__content {
   display: flex;
   justify-content: center;
-  padding: 60px 588px;
+  margin-top: 60px;
 }
 
 .footer__copyright {
@@ -23,7 +23,7 @@
     max-width: 288px;
     align-items: center;
     text-align: center;
-    padding: 60px 92px;
+    margin-top: 60px;
   }
 
   .footer__copyright {
@@ -38,7 +38,7 @@
     max-width: 288px;
     align-items: center;
     text-align: center;
-    padding: 60px 92px;
+    margin-top: 60px;
   }
 
   .footer__copyright {
