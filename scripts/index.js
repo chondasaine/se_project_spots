@@ -30,15 +30,54 @@ const editProfileModal = document.querySelector("#editProfileModal");
 const closeProfileModal = editProfileModal.querySelector(
   ".modal__close-button"
 );
+const profileName = document.querySelector(".profile__name");
+const modalNameInput = editProfileModal.querySelector("#profile-name-input");
+const profileDescription = document.querySelector(".profile__description");
+const modalDescriptionInput = editProfileModal.querySelector(
+  "#profile-description-input"
+);
+const editFormElement = editProfileModal.querySelector(".modal__form");
 
-function openModal() {
-  editProfileModal.classList.add("modal_opened");
+const cardTemplate = document.querySelector("#card-template");
+const cardslist = document.querySelector(".cards__list");
+
+function getCardElement(data) {
+  const CardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+
+  const cardNameElement = CardElement.querySelector(".card__title");
+  const cardImageElement = CardElement.querySelector(".card__image");
+
+  cardNameElement.textContent = data.name;
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name;
+
+  return CardElement;
 }
 
-profileEditButton.addEventListener("click", openModal);
+function openModal() {
+  modalNameInput.value = profileName.textContent;
+  modalDescriptionInput.value = profileDescription.textContent;
+  editProfileModal.classList.add("modal_opened");
+}
 
 function closeModal() {
   editProfileModal.classList.remove("modal_opened");
 }
 
+function handelEditFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = modalNameInput.value;
+  profileDescription.textContent = modalDescriptionInput.value;
+  closeModal();
+}
+
 closeProfileModal.addEventListener("click", closeModal);
+profileEditButton.addEventListener("click", openModal);
+editFormElement.addEventListener("submit", handelEditFormSubmit);
+
+for (let i = 0; i < initialCards.length; i++) {
+  const CardElement = getCardElement(initialCards[i]);
+  cardslist.prepend(CardElement);
+}

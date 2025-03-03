@@ -72,9 +72,10 @@
 .modal__input::placeholder {
   font-family: "Poppins", "Arial", "san-serif";
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1;
   color: #212121;
+  opacity: 30%;
 }
 
 .modal__submit-button {
