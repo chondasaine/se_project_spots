@@ -42,18 +42,18 @@ const cardTemplate = document.querySelector("#card-template");
 const cardslist = document.querySelector(".cards__list");
 
 function getCardElement(data) {
-  const CardElement = cardTemplate.content
+  const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
 
-  const cardNameElement = CardElement.querySelector(".card__title");
-  const cardImageElement = CardElement.querySelector(".card__image");
+  const cardNameElement = cardElement.querySelector(".card__title");
+  const cardImageElement = cardElement.querySelector(".card__image");
 
   cardNameElement.textContent = data.name;
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
 
-  return CardElement;
+  return cardElement;
 }
 
 function openModal() {
@@ -66,7 +66,7 @@ function closeModal() {
   editProfileModal.classList.remove("modal_opened");
 }
 
-function handelEditFormSubmit(evt) {
+function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = modalNameInput.value;
   profileDescription.textContent = modalDescriptionInput.value;
@@ -75,9 +75,9 @@ function handelEditFormSubmit(evt) {
 
 closeProfileModal.addEventListener("click", closeModal);
 profileEditButton.addEventListener("click", openModal);
-editFormElement.addEventListener("submit", handelEditFormSubmit);
+editFormElement.addEventListener("submit", handleEditFormSubmit);
 
 for (let i = 0; i < initialCards.length; i++) {
-  const CardElement = getCardElement(initialCards[i]);
-  cardslist.prepend(CardElement);
+  const cardElement = getCardElement(initialCards[i]);
+  cardslist.prepend(cardElement);
 }
