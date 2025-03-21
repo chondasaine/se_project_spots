@@ -61,6 +61,7 @@
   font-size: 16px;
   line-height: 1;
   cursor: pointer;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .profile__edit-button:hover {
@@ -86,6 +87,7 @@
   border-radius: 8px;
   text-wrap: nowrap;
   cursor: pointer;
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .profile__add-button:hover {
