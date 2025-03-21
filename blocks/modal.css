@@ -10,12 +10,14 @@
   align-items: center;
   justify-content: center;
   visibility: hidden;
+  opacity: 0;
   padding: 0 20px;
-  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal_opened {
   visibility: visible;
+  opacity: 1;
 }
 
 .modal__container {
@@ -51,7 +53,7 @@
 .modal__image {
   width: 100%;
   object-fit: cover;
-  max-width: 80vw;
+  max-width: 90vw;
   max-height: 80vh;
 }
 
@@ -158,8 +160,9 @@
   }
 
   .modal__close-button {
-    top: 12px;
-    right: 12px;
+    position: absolute;
+    top: -50px;
+    right: 0;
   }
 
   .modal__label {
