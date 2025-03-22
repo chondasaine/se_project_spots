@@ -160,9 +160,13 @@
   }
 
   .modal__close-button {
+    top: 12px;
+    right: 12px;
+  }
+  .modal__close-button_preview {
     position: absolute;
     top: -50px;
-    right: 0;
+    right: 8px;
   }
 
   .modal__label {
