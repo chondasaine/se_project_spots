@@ -60,6 +60,7 @@ const cardSubmitButton = cardModal.querySelector(".modal__submit-button");
 const cardModalCloseButton = cardModal.querySelector(".modal__close-button");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
+const evtModals = [editProfileModal, cardModal, previewModal];
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -95,10 +96,14 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscClose);
+  document.addEventListener("click", handleClickOutsideModal);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscClose);
+  document.removeEventListener("click", handleClickOutsideModal);
 }
 
 function handleEditFormSubmit(evt) {
@@ -114,7 +119,7 @@ function handleCardSubmit(evt) {
   const cardElement = getCardElement(inputValues);
   cardslist.prepend(cardElement);
   evt.target.reset();
-  disableButton(cardSubmitButton);
+  disableButton(cardSubmitButton, settings);
   closeModal(cardModal);
 }
 
@@ -125,7 +130,11 @@ closeProfileModal.addEventListener("click", () => {
 profileEditButton.addEventListener("click", () => {
   modalNameInput.value = profileName.textContent;
   modalDescriptionInput.value = profileDescription.textContent;
-  resetValidation(editFormElement, [modalNameInput, modalDescriptionInput]);
+  resetValidation(
+    editFormElement,
+    [modalNameInput, modalDescriptionInput],
+    settings
+  );
   openModal(editProfileModal);
 });
 
@@ -148,3 +157,19 @@ initialCards.forEach((item) => {
   const cardElement = getCardElement(item);
   cardslist.prepend(cardElement);
 });
+
+function handleEscClose(evt) {
+  if (evt.key === "Escape") {
+    evtModals.forEach((modal) => {
+      if (modal.classList.contains("modal_opened")) {
+        closeModal(modal);
+      }
+    });
+  }
+}
+
+function handleClickOutsideModal(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  }
+}
