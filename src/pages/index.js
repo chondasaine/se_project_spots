@@ -1,3 +1,11 @@
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+  disableButton,
+} from "../scripts/validation.js";
+import "./index.css";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -173,3 +181,5 @@ function handleClickOutsideModal(evt) {
     closeModal(evt.target);
   }
 }
+
+enableValidation(settings);
