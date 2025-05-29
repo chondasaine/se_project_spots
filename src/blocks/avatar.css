@@ -1,0 +1,17 @@
+.avatar__column {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar__edit-button {
+  color: #ffff;
+  display: flex;
+  gap: 8px;
+  border-style: ;
+  background-color: #fcf5e5;
+  text-wrap: nowrap;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}

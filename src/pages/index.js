@@ -7,37 +7,6 @@ import {
 import "./index.css";
 import Api from "../utils/Api.js";
 
-/*const initialCards = [
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-
-  {
-    name: "Griffin Wolldridge",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-  },
-];*/
 const avatar = document.querySelector(".profile__avatar");
 
 const api = new Api({
@@ -97,9 +66,7 @@ let selectedCardId;
 
 const deleteModal = document.querySelector("#delete-modal");
 const closeDeleteModal = deleteModal.querySelector(".modal__close-button");
-const cardConfirmDeleteButton = deleteModal.querySelector(
-  "#delete-confirm-button"
-);
+
 const evtModals = [editProfileModal, cardModal, previewModal, deleteModal];
 
 function getCardElement(data) {
@@ -112,14 +79,19 @@ function getCardElement(data) {
   const cardLikeButton = cardElement.querySelector(".card__like-button");
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
 
+  data.isLiked
+    ? cardLikeButton.classList.add("card__like-button_liked")
+    : cardLikeButton.classList.remove("card__like-button_liked");
+
   cardNameElement.textContent = data.name;
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name;
   cardElement.id = data._id;
+  cardElement.status = data.isLiked;
 
-  cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-button_liked");
-  });
+  cardLikeButton.addEventListener("click", (evt) =>
+    handleLikeStatus(evt, data._id)
+  );
 
   cardDeleteButton.addEventListener("click", (evt) => {
     openModal(deleteModal);
@@ -133,7 +105,6 @@ function getCardElement(data) {
     previewModalCaption.textContent = data.name;
     previewModalImage.alt = data.name;
   });
-
   return cardElement;
 }
 
@@ -187,6 +158,16 @@ function handleCardDelete(id) {
     .then(() => {
       document.getElementById(id).remove();
       closeModal(deleteModal);
+    })
+    .catch(console.error);
+}
+
+function handleLikeStatus(evt, id) {
+  const isLiked = evt.target.classList.contains("card__like-button_liked");
+  api
+    .handleLikeStatus(id, isLiked)
+    .then(() => {
+      evt.target.classList.toggle("card__like-button_liked");
     })
     .catch(console.error);
 }
