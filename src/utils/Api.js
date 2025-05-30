@@ -85,7 +85,7 @@ class Api {
     });
   }
 
-  editUserProfilePic({ avatar }) {
+  editUserProfilePic(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: { ...this._headers, "Content-Type": "application/json" },

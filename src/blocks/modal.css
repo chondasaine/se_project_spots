@@ -80,6 +80,11 @@
   opacity: 1;
 }
 
+.modal__close-button_delete {
+  display: flex;
+  gap: 10px;
+}
+
 .modal__close-button:hover {
   opacity: 80%;
 }
