@@ -70,7 +70,7 @@ const editAvatarButton = document.querySelector(".avatar__edit-button");
 const closeAvatarModalButton = editAvatarModal.querySelector(
   ".modal__close-button"
 );
-const avatarLink = editAvatarModal.querySelector("#avatar-input");
+const avatarLink = editAvatarModal.querySelector("#add-profile-link-input");
 const avatarProfilePic = document.querySelector(".profile__avatar");
 
 const deleteModal = document.querySelector("#delete-modal");

@@ -59,8 +59,13 @@
 
 .modal__form {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   justify-content: center;
+}
+
+.modal__form-delete {
+  flex-direction: row;
 }
 
 .modal__close-button {
