@@ -75,6 +75,7 @@ const avatarProfilePic = document.querySelector(".profile__avatar");
 
 const deleteModal = document.querySelector("#delete-modal");
 const closeDeleteModal = deleteModal.querySelector(".modal__close-button");
+const cancelDeleteModal = document.querySelector("#cancel-confirm-button");
 const evtModals = [
   editProfileModal,
   cardModal,
@@ -246,6 +247,10 @@ closeDeleteModal.addEventListener("click", () => {
 deleteForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   handleCardDelete(selectedCardId);
+});
+
+cancelDeleteModal.addEventListener("click", () => {
+  closeModal(deleteModal);
 });
 
 editAvatarButton.addEventListener("click", () => {

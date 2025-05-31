@@ -1,17 +1,50 @@
-.avatar__column {
-  display: flex;
-  flex-direction: column;
+.avatar__container {
+  position: relative;
+  display: inline-block;
 }
 
 .avatar__edit-button {
-  color: #ffff;
-  display: flex;
-  gap: 8px;
-  border-style: ;
-  background-color: #fcf5e5;
-  text-wrap: nowrap;
+  position: absolute;
+  bottom: 10px;
+  left: 45%;
+  transform: translateX(-50%);
+  width: 88px;
+  height: 16px;
+  background-image: url(../images/buttonsecondary.svg);
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border: none;
+  display: none;
+  z-index: 10;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1;
+  color: #fff;
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
   cursor: pointer;
+}
+
+.avatar__container:hover .profile__avatar {
+  filter: brightness(80%);
+}
+
+.avatar__container:hover .avatar__edit-button {
+  display: block;
+}
+
+@media screen and (max-width: 1024px) {
+  .avatar__edit-button {
+    display: block;
+    position: absolute;
+    left: 65%;
+    bottom: 20px;
+    width: 23.34px;
+    height: 23.34px;
+    border-radius: 6px;
+    background-image: url(../images/buttonsecondarymediaquery.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 }
