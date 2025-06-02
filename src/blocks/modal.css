@@ -57,6 +57,17 @@
   max-height: 80vh;
 }
 
+.modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.modal__form-delete {
+  flex-direction: row;
+}
+
 .modal__close-button {
   display: flex;
   justify-content: center;
@@ -80,6 +91,11 @@
   opacity: 1;
 }
 
+.modal__close-button_delete {
+  display: flex;
+  gap: 10px;
+}
+
 .modal__close-button:hover {
   opacity: 80%;
 }
@@ -89,6 +105,16 @@
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 32px;
+  line-height: 1;
+  color: #212121;
+}
+
+.modal__title_delete {
+  text-align: center;
+  width: 100%;
+  font-family: "Poppins", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 24px;
   line-height: 1;
   color: #212121;
 }
@@ -162,6 +188,44 @@
 .modal__submit-button-inactive {
   background: #212121;
   opacity: 50%;
+}
+
+.modal__submit-button--delete {
+  display: flex;
+  justify-content: center;
+  background-color: #ff6565;
+  color: #212121;
+  width: 156px;
+  height: 52px;
+  border-radius: 8px;
+  border: none;
+  padding: 18px 32px;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.modal__submit-button--delete:hover {
+  background-color: #ff3333;
+  border: none;
+  color: #212121;
+  cursor: pointer;
+}
+
+.modal__submit-button--cancel {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid #212121;
+  color: #212121;
+  padding: 18px 32px;
+  cursor: pointer;
+}
+
+.modal__submit-button--cancel:hover {
+  background-color: #212121;
+  border: 1px solid #212121;
+  color: #fff;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 627px) {
