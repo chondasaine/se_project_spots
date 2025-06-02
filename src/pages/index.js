@@ -75,6 +75,7 @@ const closeAvatarModalButton = editAvatarModal.querySelector(
 const avatarSubmitBtn = document.querySelector("#avatar-submit-btn");
 const avatarLink = editAvatarModal.querySelector("#add-profile-link-input");
 const avatarProfilePic = document.querySelector(".profile__avatar");
+const editAvatarForm = editAvatarModal.querySelector("#avatar-form");
 
 const deletebtn = document.querySelector("#delete-confirm-button");
 const deleteModal = document.querySelector("#delete-modal");
@@ -86,6 +87,7 @@ const evtModals = [
   previewModal,
   deleteModal,
   editAvatarModal,
+  avatarSubmitBtn,
 ];
 
 function getCardElement(data) {
@@ -209,6 +211,8 @@ function editUserProfilePic(avatar) {
     .editUserProfilePic(avatarLink.value)
     .then((data) => {
       avatarProfilePic.src = data.avatar;
+      editAvatarForm.reset();
+      disableButton(avatarSubmitBtn, settings);
       closeModal(editAvatarModal);
     })
     .catch(console.error)
