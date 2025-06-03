@@ -1,13 +1,13 @@
 .avatar__container {
   position: relative;
-  display: inline-block;
+  display: flex;
+  margin-right: 12px;
+  justify-content: center;
 }
 
 .avatar__edit-button {
   position: absolute;
   bottom: 10px;
-  left: 45%;
-  transform: translateX(-50%);
   width: 88px;
   height: 16px;
   background-image: url(../images/buttonsecondary.svg);
@@ -34,15 +34,20 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .avatar__container:hover .profile__avatar {
+    filter: unset;
+  }
   .avatar__edit-button {
     display: block;
     position: absolute;
-    left: 65%;
-    bottom: 20px;
+    right: 5px;
+    bottom: 5px;
     width: 23.34px;
     height: 23.34px;
     border-radius: 6px;
     background-image: url(../images/buttonsecondarymediaquery.svg);
+    background-color: rgba(33, 33, 33, 0.6);
+    padding: 4px;
     background-size: contain;
     background-repeat: no-repeat;
   }
